@@ -22,3 +22,11 @@ def random_price():
 def random_types():
     ingredient_types = [types.INGREDIENT_TYPE_SAUCE, types.INGREDIENT_TYPE_FILLING]
     return random.choice(ingredient_types)
+
+def receipt_builder(burger):
+    return (f'(==== {burger.bun.get_name()} ====)\n'
+            f'= {burger.ingredients[0].type.lower()} {burger.ingredients[0].name} =\n'
+            f'= {burger.ingredients[1].type.lower()} {burger.ingredients[1].name} =\n'
+            f'(==== {burger.bun.get_name()} ====)\n'
+            f'\n'
+            f'Price: {str(burger.get_price())}')

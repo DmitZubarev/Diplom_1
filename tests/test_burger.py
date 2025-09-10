@@ -47,4 +47,5 @@ class TestBurger:
         assert burger.ingredients[index].get_name() in burger.get_receipt()
 
     def test_get_receipt_price(self, burger):
-        assert str(burger.get_price()) in burger.get_receipt()
+        assert_receipt = utils.receipt_builder(burger)
+        assert assert_receipt == burger.get_receipt()
